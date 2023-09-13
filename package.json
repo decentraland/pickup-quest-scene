@@ -1,0 +1,36 @@
+{
+  "name": "pickup-quest-scene",
+  "version": "1.0.0",
+  "description": "Pick Up Scene - SDK7 scene using Quests",
+  "scripts": {
+    "start": "sdk-commands start",
+    "deploy": "sdk-commands deploy",
+    "build": "sdk-commands build",
+    "upgrade-sdk": "npm install --save-dev @dcl/sdk@latest",
+    "upgrade-sdk:next": "npm install --save-dev @dcl/sdk@next",
+    "upgrade-quests-client": "npm install --save-dev @dcl/quests-client@latest",
+    "upgrade-quests-client:next": "npm install --save-dev @dcl/quests-client@next"
+  },
+  "devDependencies": {
+    "@dcl/eslint-config": "^1.1.1",
+    "@dcl/explorer": "^1.0.119768-20230602135847.commit-2e379d5",
+    "@dcl/js-runtime": "7.2.1-5226190842.commit-35b604e",
+    "@dcl/quests-client": "0.1.0-20230908142322.commit-6293e18",
+    "@dcl/sdk": "^7.2.1-5226190842.commit-35b604e",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=6.0.0"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "none"
+  }
+}
