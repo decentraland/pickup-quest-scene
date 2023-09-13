@@ -2,7 +2,7 @@ import { engine, GltfContainer, VisibilityComponent, Transform, AudioSource } fr
 import { Vector3 } from '@dcl/sdk/math'
 import { PickableItem } from '../definitions'
 import { questEventsObservable } from '..'
-import { Action } from '@dcl/quests-client'
+import { Action, Task } from '@dcl/quests-client/dist/protocol/decentraland/quests/definitions.gen'
 import { step } from './quests'
 import { isPositionInsideArea } from './area'
 
@@ -68,7 +68,7 @@ export function itemPickupSystem() {
   lastPlayerPos = playerPos
 }
 
-export function spawnItemsToPickup() {
+export function spawnItemsToPickup(completedTasks: Task[]) {
   // Instantiate items bases
   const redBaseEntity = engine.addEntity()
   GltfContainer.create(redBaseEntity, {
@@ -94,7 +94,15 @@ export function spawnItemsToPickup() {
     position: Vector3.create(12, 0, 6)
   })
 
-  instantiatePickableItem('models/medikit.glb', Vector3.create(4, 0.75, 6), 'sounds/medikitPickup.mp3', 'medikit')
-  instantiatePickableItem('models/ammo.glb', Vector3.create(8, 0.75, 10), 'sounds/ammoPickup.mp3', 'ammo')
-  instantiatePickableItem('models/armor.glb', Vector3.create(12, 0.75, 6), 'sounds/armorPickup.mp3', 'armor')
+  if (!completedTasks.find((t) => t.id === 'pick-up-medikit')) {
+    instantiatePickableItem('models/medikit.glb', Vector3.create(4, 0.75, 6), 'sounds/medikitPickup.mp3', 'medikit')
+  }
+
+  if (!completedTasks.find((t) => t.id === 'pick-up-ammo')) {
+    instantiatePickableItem('models/ammo.glb', Vector3.create(8, 0.75, 10), 'sounds/ammoPickup.mp3', 'ammo')
+  }
+
+  if (!completedTasks.find((t) => t.id === 'pick-up-armor')) {
+    instantiatePickableItem('models/armor.glb', Vector3.create(12, 0.75, 6), 'sounds/armorPickup.mp3', 'armor')
+  }
 }

@@ -1,11 +1,11 @@
-import { QuestState } from '@dcl/quests-client'
+import { QuestState } from '@dcl/quests-client/dist/protocol/decentraland/quests/definitions.gen'
 import { spawnItemsToPickup } from './items'
 import { spawnZone } from './zone'
 
-export function onQuestStart() {
+export function onQuestStart(state: QuestState) {
   if (step !== 'prepare-for') {
-    spawnItemsToPickup()
     step = 'prepare-for'
+    spawnItemsToPickup(state.currentSteps[step].tasksCompleted)
   }
 }
 
@@ -33,7 +33,7 @@ export function updateFromState(state: QuestState) {
     onQuestComplete()
   } else if (state.stepsCompleted.length === 0) {
     console.log('> QUESTS SCENE > UPDATE FROM STEP > START')
-    onQuestStart()
+    onQuestStart(state)
   } else if (state.stepsCompleted.includes('prepare-for')) {
     console.log('> QUESTS SCENE > UPDATE FROM STEP > prepare for')
     onAllItemsPickedUp()

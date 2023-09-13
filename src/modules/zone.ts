@@ -3,7 +3,7 @@ import { Vector3, Quaternion } from '@dcl/sdk/math'
 import { step } from './quests'
 import { Zone } from '../definitions'
 import { isPositionInsideArea } from './area'
-import { Action } from '@dcl/quests-client'
+import { Action } from '@dcl/quests-client/dist/protocol/decentraland/quests/definitions.gen'
 import { questEventsObservable } from '..'
 
 export function spawnZone() {
