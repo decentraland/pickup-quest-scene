@@ -12,11 +12,11 @@
     "upgrade-quests-client:next": "npm install --save-dev @dcl/quests-client@next"
   },
   "devDependencies": {
-    "@dcl/eslint-config": "^1.1.1",
-    "@dcl/explorer": "^1.0.119768-20230602135847.commit-2e379d5",
-    "@dcl/js-runtime": "7.3.12",
-    "@dcl/quests-client": "^0.1.0-20230913151216.commit-df14a43",
-    "@dcl/sdk": "^7.2.1-5226190842.commit-35b604e",
+    "@dcl/eslint-config": "latest",
+    "@dcl/explorer": "latest",
+    "@dcl/js-runtime": "7.3.17",
+    "@dcl/quests-client": "latest",
+    "@dcl/sdk": "latest",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "eslint": "^8.38.0",
