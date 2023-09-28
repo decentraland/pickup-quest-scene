@@ -28,11 +28,10 @@ executeTask(async () => {
 
   // create quests client
   try {
-    const quests = await createQuestsClient(ws, '<QUEST_ID>')
+    const quests = await createQuestsClient(ws, QUEST_ID)
     console.log('SCENE QUESTS > connected')
 
     const startedQuestInstance = quests.getInstances().find((instance) => instance.quest.id === QUEST_ID)
-    console.log('SCENE QUESTS > definition', startedQuestInstance)
     if (startedQuestInstance) {
       questInstanceId = startedQuestInstance.id
       updateFromState(startedQuestInstance.state)
